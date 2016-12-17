@@ -29,6 +29,7 @@ func (c *container) Iter () <-chan item {
         for i := 0; i < c.size; i++ {
             ch <- c.items[i]
         }
+		close(ch)
     } ();
     return ch
 }
